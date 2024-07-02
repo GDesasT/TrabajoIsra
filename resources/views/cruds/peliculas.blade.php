@@ -1,5 +1,13 @@
 @extends('templates.crud')
 
+@section('styles')
+ <style>
+    .mr-2, #search-btn{
+        margin-left: 5px;
+    }
+ </style>
+@endsection
+
 @section('title', 'Peliculas')
 
 @section('body')
@@ -7,19 +15,21 @@
 <h1 class="h2">Peliculas</h1>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#peliculaModal" onclick="clearForm()">
+    <button type="button" class="btn btn-primary mb-2" data-toggle="modal" data-target="#peliculaModal" onclick="clearForm()">
         Añadir
     </button>
-
-    <input type="text" id="search-input" class="form-control mr-2" placeholder="Buscar por titulo...">
-    <label for="start-date" class="mr-2">Fecha Desde:</label>
-    <input type="date" id="start-date" class="form-control mr-2">
-    <label for="end-date" class="mr-2">Hasta:</label>
-    <input type="date" id="end-date" class="form-control mr-2">
-    <button id="search-btn" class="btn btn-secondary">Buscar <i class="bi bi-search"></i></button>
 </div>
 
-<table class="table table-sm table-bordered">
+<div class="form-inline centrar-horizontal mb-2">
+    <input type="text" id="search-input" class="form-control" placeholder="Buscar por titulo...">
+    <label for="start-date" class="mr-2">Fecha Desde:</label>
+    <input type="date" id="start-date" class="form-control">
+    <label for="end-date" class="mr-2">Hasta:</label>
+    <input type="date" id="end-date" class="form-control">
+    <button id="search-btn" class="btn btn-secondary"><i class="bi bi-search"></i></button>
+</div>
+
+<table class="table table-striped table-bordered">
     <thead class="table-dark">
         <tr>
             <th>
@@ -39,7 +49,7 @@
 </table>
 
 <div class="modal fade" id="peliculaModal" tabindex="-1" aria-labelledby="peliculaModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
+    <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <form id="peliculaForm">
                 @csrf
@@ -72,8 +82,8 @@
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="submit" class="btn btn-primary">Save changes</button>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                    <button type="submit" class="btn btn-primary">Guardar cambios</button>
                 </div>
             </form>
         </div>
@@ -117,13 +127,16 @@
     });
 
     function fetchPeliculas(order = 'asc') {
+        console.log(`Fetching peliculas with order: ${order}`);
         $.get(`/get/peliculas?order=${order}`, function (data) {
+            console.log('Data received:', data);
             peliculas = data;
             renderPeliculas(peliculas);
         });
     }
 
     function renderPeliculas(data) {
+        console.log('Rendering peliculas:', data);
         let tableBody = $('#peliculasTableBody');
         tableBody.empty();
         data.forEach(pelicula => {

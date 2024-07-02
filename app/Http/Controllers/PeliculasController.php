@@ -11,18 +11,11 @@ class PeliculasController extends Controller
         return view('cruds.peliculas');
     }
 
-    public function getPeliculas()
+    public function getPeliculas(Request $request)
     {
-        $pelicula = Pelicula::with(['productora', 'categoria'])->get();
-        return response()->json($pelicula);
-
         $order = $request->query('order', 'asc'); 
-        $peliculas = Pelicula::orderBy('id', $order)->get();
+        $peliculas = Pelicula::with(['productora', 'categoria'])->orderBy('id', $order)->get();
         return response()->json($peliculas);
-
-        // $order = $request->query('order', 'desc'); 
-        // $peliculas = Pelicula::orderBy('id', $order)->get();
-        // return response()->json($peliculas);
     }
 
     public function index()
@@ -48,18 +41,9 @@ class PeliculasController extends Controller
         return response()->json($pelicula, 200);
     }
 
-
     public function destroy($id)
     {
         Pelicula::findOrFail($id)->delete();
         return response()->json(null, 204);
     }
-
-//     public function getPeliculass(Request $request)
-// {
-//     $order = $request->query('order', 'asc'); // Por defecto ascendente
-//     $peliculas = Pelicula::orderBy('id', $order)->get();
-//     return response()->json($peliculas);
-// }
-
 }
