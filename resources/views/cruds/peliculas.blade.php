@@ -26,7 +26,7 @@
     <input type="date" id="start-date" class="form-control">
     <label for="end-date" class="mr-2">Hasta:</label>
     <input type="date" id="end-date" class="form-control">
-    <button id="search-btn" class="btn btn-secondary"><i class="bi bi-search"></i></button>
+    <button id="search-btn" class="btn btn-success"><i class="bi bi-search"></i></button>
 </div>
 
 <table class="table table-striped table-bordered">
@@ -82,7 +82,7 @@
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                    <button type="button" class="btn btn-success" data-dismiss="modal">Cerrar</button>
                     <button type="submit" class="btn btn-primary">Guardar cambios</button>
                 </div>
             </form>
@@ -148,7 +148,7 @@
                     <td>${pelicula.productora ? pelicula.productora.nombre : 'N/A'}</td>
                     <td>${pelicula.categoria ? pelicula.categoria.nombre : 'N/A'}</td>
                     <td>
-                        <button class="btn btn-warning" onclick="editPelicula(${pelicula.id})"><i class="bi bi-pencil-fill"></i></button>
+                        <button class="btn btn-info" onclick="editPelicula(${pelicula.id})"><i class="bi bi-pencil-fill"></i></button>
                         <button class="btn btn-danger" onclick="deletePelicula(${pelicula.id})"><i class="bi bi-backspace-fill"></i></button>
                     </td>
                 </tr>

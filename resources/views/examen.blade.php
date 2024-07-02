@@ -33,7 +33,7 @@
         <option value="asc-apellido">Orden alfabetico (apellido) A-Z</option>
         <option value="desc-apellido">Orden alfabetico (apellido) Z-A</option>
       </select>
-      <button id="search-btn" class="btn btn-secondary">Buscar <i class="bi bi-search"></i></button>
+      <button id="search-btn" class="btn btn-success">Buscar <i class="bi bi-search"></i></button>
     </div>
   </div>
   <table class="table table-sm table-bordered" id="listaAlumnos">
@@ -80,7 +80,7 @@
           </p>
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+          <button type="button" class="btn btn-success" data-bs-dismiss="modal">Cerrar</button>
           <button type="button" class="btn btn-primary" onclick="confirmarAgregarAlumno()">Guardar Alumno</button>
         </div>
       </div>
@@ -109,7 +109,7 @@
           <td>${clasificarIMC(imc)}</td>
           <td>${alumno.fecha}</td>
           <td><button type="button" class="btn btn-danger" onclick="borrarAlumno(${index})"><i class="bi bi-backspace-fill"></i></button></td>
-          <td><button type="button" class="btn btn-secondary" onclick="prepararEditarAlumno(${index})"><i class="bi bi-pencil-fill"></i></button></td>
+          <td><button type="button" class="btn btn-success" onclick="prepararEditarAlumno(${index})"><i class="bi bi-pencil-fill"></i></button></td>
         `;
         listaAlumnos.appendChild(tr);
       });
@@ -277,7 +277,7 @@
             <td>${clasificarIMC(imc)}</td>
             <td>${alumno.fecha}</td>
             <td><button type="button" class="btn btn-danger" onclick="borrarAlumno(${index})"><i class="bi bi-backspace-fill"></i></button></td>
-            <td><button type="button" class="btn btn-secondary" onclick="prepararEditarAlumno(${index})"><i class="bi bi-pencil-fill"></i></button></td>
+            <td><button type="button" class="btn btn-success" onclick="prepararEditarAlumno(${index})"><i class="bi bi-pencil-fill"></i></button></td>
           `;
           listaAlumnos.appendChild(tr);
         });

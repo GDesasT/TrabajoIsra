@@ -10,11 +10,14 @@
     <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#productoraModal" onclick="clearForm()">
         Añadir Productora
     </button>
-    <input type="text" id="search-input" class="form-control mr-2" placeholder="Buscar por nombre...">
-    <button id="search-btn" class="btn btn-secondary">Buscar <i class="bi bi-search"></i></button>
 </div>
 
-<table class="table table-sm table-bordered">
+<div class="form inline centrar-horizontal mb-2 d-flex flex-md-nowrap">
+    <input type="text" id="search-input" class="form-control mr-2" placeholder="Buscar por nombre...">
+    <button id="search-btn" class="btn btn-success"><i class="bi bi-search"></i></button>
+</div>
+
+<table class="table table-striped table-bordered">
     <thead class="table-dark">
         <tr>
             <th>Id</th>
@@ -46,7 +49,7 @@
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-success" data-dismiss="modal">Close</button>
                     <button type="submit" class="btn btn-primary">Save changes</button>
                 </div>
             </form>
@@ -104,7 +107,7 @@
                     <td>${productora.id}</td>
                     <td>${productora.nombre}</td>
                     <td>
-                        <button class="btn btn-warning" onclick="editProductora(${productora.id})"><i class="bi bi-pencil-fill"></i></button>
+                        <button class="btn btn-info" onclick="editProductora(${productora.id})"><i class="bi bi-pencil-fill"></i></button>
                         <button class="btn btn-danger" onclick="deleteProductora(${productora.id})"><i class="bi bi-backspace-fill"></i></button>
                     </td>
                 </tr>

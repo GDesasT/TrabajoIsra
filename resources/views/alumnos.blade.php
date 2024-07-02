@@ -21,7 +21,7 @@
                 <input type="date" id="start-date" class="form-control mr-2">
                 <label for="end-date" class="mr-2">Hasta:</label>
                 <input type="date" id="end-date" class="form-control">
-                <button id="search-btn" class="btn btn-secondary ml-2">Buscar</button>
+                <button id="search-btn" class="btn btn-success ml-2">Buscar</button>
             </div>
         </div>
 
