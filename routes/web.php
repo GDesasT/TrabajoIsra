@@ -32,7 +32,7 @@ Route::get('/alumnos',[ViewsController::class, 'alumnosView']);
 Route::get('/examen',[ViewsController::class, 'examenView']);
 
 Route::get('/view/peliculas',[PeliculasController::class, "view"])->name('peliculas');
-// Route::get('/get/peliculas',[PeliculasController::class, "index"]); 
+Route::get('/get/peliculas',[PeliculasController::class, "index"]); 
 Route::get('/get/peliculas', [PeliculasController::class, 'getPeliculas']);
 Route::get('/get/pelicula/{id}',[PeliculasController::class, "show"]);
 Route::post('/insert/pelicula',[PeliculasController::class, "store"]);
