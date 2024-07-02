@@ -24,14 +24,14 @@ Route::get('/examen',function () {
     return view('examen');
 });
 
-Route::get('/',[ViewsController::class,'dashboard'])->name('dashboard');
+Route::get('/dashboard',[ViewsController::class,'dashboard'])->name('dashboard');
 Route::get('/inicio',[ViewsController::class,'inicioView']);
 Route::get('/contacto',[ViewsController::class,'contactView']);
 Route::get('/columna',[ViewsController::class,'columnasView']);
 Route::get('/alumnos',[ViewsController::class, 'alumnosView']);
 Route::get('/examen',[ViewsController::class, 'examenView']);
 
-Route::get('/view/peliculas',[PeliculasController::class, "view"])->name('peliculas');
+Route::get('/',[PeliculasController::class, "view"])->name('peliculas');
 Route::get('/get/peliculas',[PeliculasController::class, "index"]); 
 Route::get('/get/peliculas', [PeliculasController::class, 'getPeliculas']);
 Route::get('/get/pelicula/{id}',[PeliculasController::class, "show"]);
