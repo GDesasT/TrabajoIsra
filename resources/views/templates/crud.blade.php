@@ -43,6 +43,11 @@
                                 Productoras
                             </a>
                         </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('plataformas') }}">
+                                Colores
+                            </a>
+                        </li>
                     </ul>
                 </div>
             </nav>

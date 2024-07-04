@@ -53,5 +53,13 @@ Route::post('/insert/productora',[ProductorasController::class, "store"]);
 Route::put('/update/productora/{id}',[ProductorasController::class, "update"]);
 Route::delete('/delete/productora/{id}',[ProductorasController::class, "destroy"]);
 
+Route::get('/view/plataformas',[PlataformasController::class, "view"])->name('plataformas');
+Route::get('/get/plataformas',[PlataformasController::class, "index"]);
+Route::get('/get/plataforma/{id}',[PlataformasController::class, "show"]);
+Route::post('/insert/plataforma',[PlataformasController::class, "store"]);
+Route::put('/update/plataforma/{id}',[PlataformasController::class, "update"]);
+Route::delete('/delete/plataforma/{id}',[PlataformasController::class, "destroy"]);
+
+
 
 
