@@ -16,7 +16,7 @@
 </head>
 <body>
     <p>
-        <select class="form-select" id="functionSelector">
+        <select class="form-select" id="functionSelector" style="max-width: 400px; margin-bottom: 10px;">
             <option value="changeBackgroundColor">Cambiar Color de Fondo</option>
             <option value="setRandomBackgroundColor">Color Aleatorio</option>
         </select>
