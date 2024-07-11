@@ -48,6 +48,11 @@
                                 Colores
                             </a>
                         </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('json') }}">
+                                Json
+                            </a>
+                        </li>
                     </ul>
                 </div>
             </nav>

@@ -6,6 +6,7 @@ use App\Http\Controllers\PeliculasController;
 use App\Http\Controllers\CategoriasController;
 use App\Http\Controllers\ProductorasController;
 use App\Http\Controllers\PlataformasController;
+use App\Http\Controllers\JsonController;
 
 // Route::get('/', function () {
 //     return view('welcome');
@@ -23,6 +24,10 @@ Route::get('/alumnos',function () {
 Route::get('/examen',function () {
     return view('examen');
 });
+
+Route::get('/view/json',[JsonController::class,'view'])->name('json');
+
+
 
 Route::get('/dashboard',[ViewsController::class,'dashboard'])->name('dashboard');
 Route::get('/inicio',[ViewsController::class,'inicioView']);
