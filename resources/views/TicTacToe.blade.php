@@ -94,10 +94,8 @@
                         if (winner) {
                             gameEnded = true;
                             $('#winnerMessage').text('¡El jugador ' + winner + ' ha ganado!');
-                            $('#message').show();
-                        } else {
-                            $('#message').hide();
                         }
+                        $('#message').show();
                     } else {
                         $('#errors').text(response.message).show();
                     }
@@ -117,6 +115,8 @@
                     updatePlayer('X');
                     $('#winnerMessage').text('');
                     gameEnded = false;
+                    $('#errors').hide();
+                    $('#message').show();
                 },
                 error: function(xhr, status, error) {
                     console.error(xhr.responseText);
