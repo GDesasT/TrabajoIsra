@@ -60,33 +60,11 @@
     <div class="text-center mt-4">
         <p>Current Player: <strong id="player">{{ $player }}</strong></p>
     </div>
-    <div id="message" class="text-center mt-4" style="display: none;">
+    <div id="message" class="text-center mt-4">
         <p><strong id="winnerMessage"></strong></p>
         <button id="resetButton" class="btn btn-primary">Reset Game</button>
     </div>
     <div id="errors" class="alert alert-danger" style="display: none;"></div>
-
-    @if (!empty($players))
-        <h2 class="mt-4">Historial de movimientos</h2>
-        <table class="table mt-3">
-            <thead>
-                <tr>
-                    <th>Jugador</th>
-                    <th>Posición</th>
-                </tr>
-            </thead>
-            <tbody>
-                @foreach ($players as $player)
-                    @foreach ($player['moves'] as $move)
-                        <tr>
-                            <td>{{ $move['player'] }}</td>
-                            <td>{{ $move['position'] }}</td>
-                        </tr>
-                    @endforeach
-                @endforeach
-            </tbody>
-        </table>
-    @endif
 </div>
 @endsection
 
@@ -117,6 +95,8 @@
                             gameEnded = true;
                             $('#winnerMessage').text('¡El jugador ' + winner + ' ha ganado!');
                             $('#message').show();
+                        } else {
+                            $('#message').hide();
                         }
                     } else {
                         $('#errors').text(response.message).show();
@@ -135,7 +115,7 @@
                 success: function(response) {
                     updateBoard(Array(9).fill(''));
                     updatePlayer('X');
-                    $('#message').hide();
+                    $('#winnerMessage').text('');
                     gameEnded = false;
                 },
                 error: function(xhr, status, error) {
