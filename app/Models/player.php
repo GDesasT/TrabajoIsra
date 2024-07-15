@@ -9,10 +9,9 @@ class player extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['board', 'current_player', 'moves'];
+    protected $fillable = ['board', 'current_player'];
 
     protected $casts = [
         'board' => 'array',
-        'moves' => 'array',
     ];
 }

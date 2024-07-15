@@ -14,14 +14,12 @@ class TicTacToeController extends Controller
         if ($game) {
             $board = $game->board;
             $player = $game->current_player;
-            $players = json_decode($game->moves, true); // Decodifica el campo JSON 'moves'
         } else {
             $board = array_fill(0, 9, '');
             $player = 'X';
-            $players = [];
         }
 
-        return view('tictactoe', compact('board', 'player', 'players'));
+        return view('tictactoe', compact('board', 'player'));
     }
 
     public function play(Request $request)
@@ -32,7 +30,6 @@ class TicTacToeController extends Controller
             $game = new Player([
                 'board' => array_fill(0, 9, ''),
                 'current_player' => 'X',
-                'moves' => json_encode([]), // Inicializa el historial de movimientos como un array vacío en JSON
             ]);
         }
 
@@ -47,18 +44,15 @@ class TicTacToeController extends Controller
             $winner = $this->checkWinner($board);
 
             if ($winner) {
-                $this->saveMove($game, $player, $position); // Guarda el movimiento ganador antes de responder
                 return response()->json([
                     'success' => true,
                     'board' => $board,
                     'player' => $player,
                     'winner' => $winner,
-                    'players' => json_decode($game->moves, true), // Envía el historial actualizado de movimientos
                 ]);
             }
 
             $player = $player === 'X' ? 'O' : 'X';
-            $this->saveMove($game, $player, $position); // Guarda el movimiento antes de cambiar de jugador
         } else {
             return response()->json([
                 'success' => false,
@@ -75,7 +69,6 @@ class TicTacToeController extends Controller
             'board' => $board,
             'player' => $player,
             'winner' => null,
-            'players' => json_decode($game->moves, true), // Envía el historial actualizado de movimientos
         ]);
     }
 
@@ -102,16 +95,5 @@ class TicTacToeController extends Controller
         }
 
         return null;
-    }
-
-    private function saveMove($game, $player, $position)
-    {
-        $moves = json_decode($game->moves, true);
-        $moves[] = [
-            'player' => $player,
-            'position' => $position,
-        ];
-        $game->moves = json_encode($moves);
-        $game->save();
     }
 }

@@ -15,7 +15,6 @@ return new class extends Migration
             $table->id();
             $table->json('board');
             $table->string('current_player');
-            $table->string('moves');
             $table->timestamps();
         });
     }

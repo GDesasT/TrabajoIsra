@@ -137,7 +137,6 @@
                     updatePlayer('X');
                     $('#message').hide();
                     gameEnded = false;
-                    $('#errors').hide();
                 },
                 error: function(xhr, status, error) {
                     console.error(xhr.responseText);
