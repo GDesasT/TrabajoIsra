@@ -8,6 +8,7 @@ use App\Http\Controllers\ProductorasController;
 use App\Http\Controllers\PlataformasController;
 use App\Http\Controllers\JsonController;
 use App\Http\Controllers\TicTacToeController;
+use App\Http\Controllers\UsuariosController;
 
 // Route::get('/', function () {
 //     return view('welcome');
@@ -25,6 +26,13 @@ Route::get('/alumnos',function () {
 Route::get('/examen',function () {
     return view('examen');
 });
+
+Route::get('/login/vista', [UsuariosController::class, 'vistaLogin']);
+Route::post('/login', [UsuariosController::class, 'logear']);
+Route::get('/logout', [UsuariosController::class, 'logout']);
+
+Route::get('/registro/vista', [UsuariosController::class, 'vistaRegistro']);
+Route::post('/registro', [UsuariosController::class, 'registrar']);
 
 Route::get('/view/json', [JsonController::class, 'view'])->name('json');
 Route::get('/tictactoe', [TicTacToeController::class, 'index'])->name('tictactoe');
