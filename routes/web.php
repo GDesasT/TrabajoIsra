@@ -7,6 +7,7 @@ use App\Http\Controllers\CategoriasController;
 use App\Http\Controllers\ProductorasController;
 use App\Http\Controllers\PlataformasController;
 use App\Http\Controllers\JsonController;
+use App\Http\Controllers\TicTacToeController;
 
 // Route::get('/', function () {
 //     return view('welcome');
@@ -25,7 +26,11 @@ Route::get('/examen',function () {
     return view('examen');
 });
 
-Route::get('/view/json',[JsonController::class,'view'])->name('json');
+Route::get('/view/json', [JsonController::class, 'view'])->name('json');
+Route::get('/tictactoe', [TicTacToeController::class, 'index'])->name('tictactoe');
+Route::get('/tictactoe/play', [TicTacToeController::class, 'index']);
+Route::post('/tictactoe/play', [TicTacToeController::class, 'play'])->name('tictactoe.play');
+Route::get('/tictactoe/reset', [TicTacToeController::class, 'reset'])->name('tictactoe.reset');
 
 
 

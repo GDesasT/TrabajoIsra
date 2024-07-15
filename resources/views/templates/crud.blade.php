@@ -53,6 +53,11 @@
                                 Json
                             </a>
                         </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('tictactoe') }}">
+                                Tic Tac Toe
+                            </a>
+                        </li>
                     </ul>
                 </div>
             </nav>
