@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\User;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Auth;
+use App\Models\Game;
 
 class UsuariosController extends Controller
 {
@@ -17,21 +18,30 @@ class UsuariosController extends Controller
     public function logear(Request $request)
     {
         $credentials = $request->only('email', 'password');
-
+    
         if (Auth::attempt($credentials)) {
-            return redirect()->intended('/tictactoe');
+            return redirect()->intended('/dashboard');
         }
-
+    
         return back()->withErrors([
             'email' => 'Las credenciales no coinciden con nuestros registros.',
         ]);
     }
 
-    public function logout()
+    public function history()
     {
-        Auth::logout();
-        return redirect('/login/vista');
+        $games = Game::with('player1', 'moves')->get();
+        return view('game.history', compact('games'));
     }
+    
+    public function logout(Request $request)
+{
+    Auth::logout();
+    $request->session()->invalidate();
+    $request->session()->regenerateToken();
+
+    return redirect('/login/vista');
+}
 
     public function vistaRegistro()
     {
@@ -40,11 +50,7 @@ class UsuariosController extends Controller
 
     public function registrar(Request $request)
     {
-        // $request->validate([
-        //     'name' => 'required|string|max:255',
-        //     'email' => 'required|string|email|max:255|unique:users',
-        //     'password' => 'required|string|min:8|confirmed',
-        // ]);
+
 
         $user = User::create([
             'name' => $request->name,
@@ -52,9 +58,6 @@ class UsuariosController extends Controller
             'password' => Hash::make($request->password),
         ]);
 
-        // Auth::login($user);
-
-        // return redirect('/perfil/vista');
         return redirect('/login/vista');
     }
 

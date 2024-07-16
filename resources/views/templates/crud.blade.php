@@ -54,7 +54,7 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('tictactoe') }}">
+                            <a class="nav-link" href="{{ route('login.vista') }}">
                                 Tic Tac Toe
                             </a>
                         </li>

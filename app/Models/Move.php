@@ -9,10 +9,15 @@ class Move extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['player_id', 'player', 'position'];
+    protected $fillable = [
+        'game_id',
+        'user_id',
+        'position',
+        'symbol'
+    ];
 
-    public function game()
+    public function user()
     {
-        return $this->belongsTo(Player::class);
+        return $this->belongsTo(User::class, 'user_id');
     }
 }

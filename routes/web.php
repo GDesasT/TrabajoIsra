@@ -8,6 +8,7 @@ use App\Http\Controllers\ProductorasController;
 use App\Http\Controllers\PlataformasController;
 use App\Http\Controllers\JsonController;
 use App\Http\Controllers\TicTacToeController;
+use App\Http\Controllers\GameController;
 use App\Http\Controllers\UsuariosController;
 
 // Route::get('/', function () {
@@ -27,12 +28,6 @@ Route::get('/examen',function () {
     return view('examen');
 });
 
-Route::get('/login/vista', [UsuariosController::class, 'vistaLogin']);
-Route::post('/login', [UsuariosController::class, 'logear']);
-Route::get('/logout', [UsuariosController::class, 'logout']);
-
-Route::get('/registro/vista', [UsuariosController::class, 'vistaRegistro']);
-Route::post('/registro', [UsuariosController::class, 'registrar']);
 
 Route::get('/view/json', [JsonController::class, 'view'])->name('json');
 Route::get('/tictactoe', [TicTacToeController::class, 'index'])->name('tictactoe');
@@ -78,6 +73,19 @@ Route::post('/insert/plataforma',[PlataformasController::class, "store"]);
 Route::put('/update/plataforma/{id}',[PlataformasController::class, "update"]);
 Route::delete('/delete/plataforma/{id}',[PlataformasController::class, "destroy"]);
 
+Route::get('/dashboard', [GameController::class, 'dashboard'])->name('dashboard')->middleware('auth');
+Route::post('/game/create', [GameController::class, 'createGame'])->name('game.create');
+Route::get('/game/{id}', [GameController::class, 'showGame'])->name('game.show');
+Route::post('/game/{id}/move', [GameController::class, 'makeMove'])->name('game.move');
+
+Route::get('/login/vista', [UsuariosController::class, 'vistaLogin'])->name('login.vista');
+Route::post('/login', [UsuariosController::class, 'logear'])->name('login.post');
+Route::post('logout', [UsuariosController::class, 'logout'])->name('logout');
 
 
+Route::get('/registro/vista', [UsuariosController::class, 'vistaRegistro'])->name('registro.vista');
+Route::post('/registro', [UsuariosController::class, 'registrar'])->name('registro.post');
 
+Route::get('/perfil/vista', [UsuariosController::class, 'vistaPerfil'])->name('perfil.vista');  
+Route::get('/history', [GameController::class, 'history'])->name('history');
+Route::delete('/game/{id}', [GameController::class, 'delete'])->name('game.delete');
