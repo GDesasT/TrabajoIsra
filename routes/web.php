@@ -73,7 +73,7 @@ Route::post('/insert/plataforma',[PlataformasController::class, "store"]);
 Route::put('/update/plataforma/{id}',[PlataformasController::class, "update"]);
 Route::delete('/delete/plataforma/{id}',[PlataformasController::class, "destroy"]);
 
-Route::get('/dashboard', [GameController::class, 'dashboard'])->name('dashboard')->middleware('auth');
+Route::get('/dashboard', [GameController::class, 'dashboard'])->name('dashboard');
 Route::post('/game/create', [GameController::class, 'createGame'])->name('game.create');
 Route::get('/game/{id}', [GameController::class, 'showGame'])->name('game.show');
 Route::post('/game/{id}/move', [GameController::class, 'makeMove'])->name('game.move');

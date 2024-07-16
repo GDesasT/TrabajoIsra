@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap">
     <style>
         body {
-            background-color: #f8f9fa;
+            background-color: #f0f2f5;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -19,17 +19,17 @@
             max-width: 1000px;
             width: 90%;
             margin: 20px;
-            padding: 40px;
-            background-color: #fff;
-            border-radius: 20px;
-            box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+            padding: 30px;
+            background-color: #ffffff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
             overflow-x: auto;
+            border-left: 5px solid #007bff;
         }
         .history-box h1 {
             font-size: 2em;
             text-align: center;
-            color: #333;
-            margin-bottom: 30px;
+            color: #343a40;
+            margin-bottom: 20px;
         }
         .table {
             width: 100%;
@@ -37,7 +37,7 @@
             color: #212529;
         }
         .table th, .table td {
-            padding: 1.25rem;
+            padding: 1rem;
             vertical-align: middle;
             border-top: 1px solid #dee2e6;
             text-align: center;
@@ -47,21 +47,27 @@
             color: white;
         }
         .table tbody tr:nth-of-type(odd) {
-            background-color: rgba(0, 123, 255, 0.15);
+            background-color: #f8f9fa;
         }
         .btn-danger {
-            border-radius: 20px;
+            background-color: #e74c3c;
+            border: none;
+            padding: 5px 10px;
+        }
+        .btn-danger:hover {
+            background-color: #c0392b;
         }
         .btn-back {
-            display: block;
-            width: 100%;
-            padding: 10px;
+            display: inline-block;
             margin-top: 20px;
-            text-align: center;
+            padding: 10px 20px;
             background-color: #007bff;
             color: white;
-            border-radius: 20px;
+            text-align: center;
             text-decoration: none;
+            border: none;
+            border-radius: 4px;
+            transition: background-color 0.3s;
         }
         .btn-back:hover {
             background-color: #0056b3;

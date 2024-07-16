@@ -15,28 +15,45 @@
             font-family: 'Arial', sans-serif;
         }
         .navbar {
-            background-color: #fff;
+            background: linear-gradient(90deg, #4b6cb7, #182848);
             box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            padding: 15px 20px;
+        }
+        .navbar-brand {
+            color: #fff;
+            font-weight: bold;
+            font-size: 1.5em;
+            display: flex;
+            align-items: center;
         }
         .navbar-brand img {
-            width: 70px;
-            margin-left: 20px;
+            width: 50px;
+            margin-right: 10px;
         }
         .navbar-nav {
-            margin: 0 auto; 
+            margin-left: auto;
+        }
+        .nav-link {
+            color: white !important;
+            font-weight: bold;
+            padding: 10px 15px;
+            transition: color 0.3s ease-in-out;
+        }
+        .nav-link:hover {
+            color: #f1f1f1 !important;
         }
         .main-content {
             padding: 20px;
             display: flex;
             justify-content: center;
             align-items: center;
-            height: calc(100vh - 56px); 
+            height: calc(100vh - 56px);
         }
         .form-container {
             max-width: 600px;
             width: 100%;
             padding: 40px;
-            background-color: #fff; 
+            background-color: #fff;
             border-radius: 8px;
             box-shadow: 0 0 15px rgba(0,0,0,0.1);
             text-align: center;
@@ -65,12 +82,15 @@
     </style>
 </head>
 <body>
-    <nav class="navbar navbar-expand-lg navbar-light">
+    <nav class="navbar navbar-expand-lg">
+        <a class="navbar-brand" href="#">
+            <img src="https://th.bing.com/th/id/OIP.NaqRccv1IJxtEmkGSgmebwAAAA?rs=1&pid=ImgDetMain" alt="SDL Logo"> SDLG
+        </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav">
+            <ul class="navbar-nav ml-auto">
                 <li class="nav-item">
                     <a class="nav-link" href="{{ route('perfil.vista') }}">Ver Perfil</a>
                 </li>
@@ -79,8 +99,8 @@
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="{{ route('logout') }}"
-                       onclick="event.preventDefault();
-                                 document.getElementById('logout-form').submit();">
+                    onclick="event.preventDefault();
+                                document.getElementById('logout-form').submit();">
                         Cerrar Sesión
                     </a>
                     <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
@@ -115,50 +135,50 @@
 @endauth
 
 @guest
-    <!DOCTYPE html>
-    <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Acceso Restringido</title>
-        <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
-        <style>
-            html, body {
-                height: 100%;
-                margin: 0;
-                padding: 0;
-                font-family: 'Arial', sans-serif;
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                background-color: #f8f9fa;
-            }
-            .container {
-                text-align: center;
-                max-width: 600px;
-                padding: 40px;
-                background-color: #fff; 
-                border-radius: 8px;
-                box-shadow: 0 0 15px rgba(0,0,0,0.1);
-            }
-            .title {
-                font-size: 2em;
-                margin-bottom: 20px;
-                color: #333;
-            }
-            .meme {
-                margin-bottom: 20px;
-                max-width: 100%;
-                border-radius: 8px;
-            }
-        </style>
-    </head>
-    <body>
-        <div class="container">
-            <h2 class="title">Acceso Restringido</h2>
-            <img src="https://cdn.memegenerator.es/imagenes/memes/thumb/30/74/30741918.jpg" alt="Meme Enfadado">
-            <p>¿Qué intentas hacer? ¡Mal parido!</p>
-        </div>
-    </body>
-    </html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Acceso Restringido</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        html, body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            font-family: 'Arial', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #f8f9fa;
+        }
+        .container {
+            text-align: center;
+            max-width: 600px;
+            padding: 40px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 15px rgba(0,0,0,0.1);
+        }
+        .title {
+            font-size: 2em;
+            margin-bottom: 20px;
+            color: #333;
+        }
+        .meme {
+            margin-bottom: 20px;
+            max-width: 100%;
+            border-radius: 8px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2 class="title">Acceso Restringido</h2>
+        <img src="https://cdn.memegenerator.es/imagenes/memes/thumb/30/74/30741918.jpg" alt="Meme Enfadado" class="meme">
+        <p>¿Qué intentas hace   r? ¡Mal parido!</p>
+    </div>
+</body>
+</html>
 @endguest

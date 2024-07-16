@@ -101,15 +101,13 @@
             <table>
                 <thead>
                     <tr>
-                        <th>Jugador</th>
-                        <th>Movimiento</th>
+                        <th>Ficha</th>
                         <th>Posición</th>
                     </tr>
                 </thead>
                 <tbody id="movement-list">
                     @foreach ($moves as $move)
                         <tr>
-                            <td>{{ $move->user->name }}</td>
                             <td>{{ $move->symbol }}</td>
                             <td>{{ $move->position }}</td>
                         </tr>
@@ -174,7 +172,7 @@
                                 }, 2000);
                             }
 
-                            const newMovement = `<tr><td>${data.user}</td><td>${data.symbol}</td><td>${data.position}</td></tr>`;
+                            const newMovement = `<tr><td>${data.symbol}</td><td>${data.position}</td></tr>`;
                             $('#movement-list').append(newMovement);
                         }
                     },
